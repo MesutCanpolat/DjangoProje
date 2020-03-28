@@ -1,1 +1,1 @@
-"# Foto paylaüçm yorum deßerlendirme Sitesi " 
+"# Foto paylasim yorum degerlendirme Sitesi " 
