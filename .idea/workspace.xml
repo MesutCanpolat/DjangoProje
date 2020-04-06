@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="">
+    <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="settings ve imagess a Ckeditor eklendi">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/hakkimizda.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/referanslarimiz.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project2/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +22,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -34,6 +52,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Django\project2\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1ZU0VcTPu6wRZLk0ab64Qph12Hi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,6 +82,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\project2\home\templates" />
       <recent name="C:\Django\project2\images" />
       <recent name="C:\Django\project2\project2" />
     </key>
@@ -154,7 +180,8 @@
       <workItem from="1585429570181" duration="6793000" />
       <workItem from="1585596101145" duration="61000" />
       <workItem from="1585670669510" duration="5081000" />
-      <workItem from="1586044075596" duration="3412000" />
+      <workItem from="1586044075596" duration="3919000" />
+      <workItem from="1586105268738" duration="5331000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -177,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585443875115</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="settings ve imagess a Ckeditor eklendi">
+      <created>1586049918625</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586049918625</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,21 +230,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="header deisti" />
     <MESSAGE value="homebase degisti" />
-    <option name="LAST_COMMIT_MESSAGE" value="homebase degisti" />
+    <MESSAGE value="settings ve imagess a Ckeditor eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="settings ve imagess a Ckeditor eklendi" />
   </component>
   <component name="WindowStateProjectService">
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585443394956">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1585443394956" />
-    <state x="1674" y="0" key="CommitChangelistDialog2" timestamp="1586049744542">
+    <state x="1842" y="0" key="CommitChangelistDialog2" timestamp="1586049943198">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
-    <state x="1674" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049744542" />
+    <state x="1842" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049943198" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
-    <state x="129" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1585443869550">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
+    <state x="1495" y="56" key="DiffContextDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049967853" />
     <state x="129" y="56" width="1092" height="618" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1585443869550" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1585443374300">
       <screen x="0" y="0" width="1366" height="738" />
@@ -236,16 +272,17 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1586049764078">
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1586049977809">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049764078" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049977809" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1586044121126">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1586105269334">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="355" y="180" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1585670693837" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1586044121126" />
+    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586105269334" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1585429583450" />
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585443145251">
       <screen x="0" y="0" width="1366" height="738" />
