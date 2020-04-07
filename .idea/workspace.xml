@@ -4,10 +4,7 @@
     <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +174,8 @@
       <workItem from="1585596101145" duration="61000" />
       <workItem from="1585670669510" duration="5081000" />
       <workItem from="1586044075596" duration="3919000" />
-      <workItem from="1586105268738" duration="14726000" />
+      <workItem from="1586105268738" duration="15136000" />
+      <workItem from="1586207641814" duration="6351000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -221,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586138564880</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="contact form bize ulaşın formu yapıldı">
+      <created>1586147967355</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586147967355</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,17 +248,19 @@
     <MESSAGE value="settings ve imagess a Ckeditor eklendi" />
     <MESSAGE value="Referanslar iletişim ve hakkımızda sayfaları yapıldı" />
     <MESSAGE value="header düzenlendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="header düzenlendi" />
+    <MESSAGE value="contact form bize ulaşın formu yapıldı" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact form bize ulaşın formu yapıldı" />
   </component>
   <component name="WindowStateProjectService">
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585443394956">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1585443394956" />
-    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1586138564251">
-      <screen x="1366" y="0" width="1366" height="738" />
+    <state x="423" y="0" key="CommitChangelistDialog2" timestamp="1586220571537">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586138564251" />
+    <state x="423" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1586220571537" />
+    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586147966674" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
     <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
       <screen x="1366" y="0" width="1366" height="738" />
@@ -284,15 +291,15 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1586138568776">
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1586147972879">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586138568776" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586147972879" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
-    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1586105269334">
-      <screen x="1366" y="0" width="1366" height="738" />
+    <state x="355" y="180" key="com.intellij.ide.util.TipDialog" timestamp="1586207641737">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="355" y="180" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1585670693837" />
+    <state x="355" y="180" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1586207641737" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1586044121126" />
     <state x="1745" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586105269334" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1585429583450" />
@@ -300,6 +307,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1585443145251" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1586208229187">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.0.1280.689@0.0.1280.689" timestamp="1586208229187" />
     <state x="1712" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1586143652572">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
