@@ -1,31 +1,31 @@
- <section id="intro">
+<section id="intro">
 
-      <div class="container">
-          {% load static %}
+    <div class="container">
+        {% load static %}
         <div class="row">
-          <div class="span12">
-            <!-- Place somewhere in the <body> of your page -->
+            <div class="span12">
+                <!-- Place somewhere in the <body> of your page -->
 
-            <div id="mainslider" class="flexslider">
+                <div id="mainslider" class="flexslider">
 
-              <ul class="slides">
-{% for rs in sliderdata %}
-                <li data-thumb="{{ rs.image.url }}" style="height: 400px">
-                 <a href="/images/{{ rs.id }}/{{ rs.slug }}">
-                  <img src="{{rs.image.url}}" alt="" style="height: 400px; width: 940px " alt=""/>
-                     </a>
-                  <div class="flex-caption primary">
-                    <h2>{{rs.title}}</h2>
-                    <p>{{rs.description}}</p>
-                  </div>
-                </li>
-{% endfor %}
-              </ul>
+                    <ul class="slides">
+                        {% for rs in sliderdata %}
+                            <li data-thumb="{{ rs.image.url }}" style="height: 400px">
+                                <a href="/images/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{rs.image.url}}" alt="" style="height: 400px; width: 940px " alt=""/>
+                                </a>
+                                <div class="flex-caption primary">
+                                    <h2>{{rs.title}}</h2>
+                                    <p>{{rs.description}}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
 
             </div>
-
-          </div>
         </div>
-      </div>
+    </div>
 
-    </section>
+</section>

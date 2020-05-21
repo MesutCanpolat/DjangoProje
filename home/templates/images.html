@@ -1,0 +1,99 @@
+{% extends "homebase.html" %}
+
+{% block title %}Fotograflar-{{ categorydata.title }}{% endblock %}
+{% block keywords %}{{ categorydata.keywords }}{% endblock %}
+{% block description %}{{ categorydata.description }}{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}">
+ {% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+ <!-- Subintro
+================================================== -->
+    <section id="subintro">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <ul class="breadcrumb">
+              <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+              <li><a href="/">Anasayfa</a><i class="icon-angle-right"></i></li>
+              <li class="active">{{ categorydata.title }}</li>
+            </ul>
+          </div>
+          <div class="span4">
+            <div class="search">
+              <form class="input-append">
+                <input class="search-form" id="appendedPrependedInput" type="text" placeholder="Search here.." />
+                <button class="btn btn-dark" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <section id="maincontent">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+              <h2>{{ categorydata.title }} Fotografları</h2>
+            <ul class="filter">
+
+              <li class="all active"><a href="#" class="btn">All categories</a></li>
+              <li class="web"><a href="#" class="btn">Web design</a></li>
+              <li class="brand"><a href="#" class="btn">Brand identity</a></li>
+              <li class="graphic"><a href="#" class="btn">Graphic design</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+
+          <ul class="portfolio-area da-thumbs">
+            <li class="portfolio-item" data-id="id-0" data-type="web">
+                {% for rs in images %}
+              <div class="span4">
+                <div class="thumbnail">
+                  <div class="image-wrapp">
+                    <img src="{{ rs.image.url }}" alt="Portfolio name" style="height: 225px; width: 300px " />
+                    <article class="da-animate da-slideFromRight">
+                      <a class="zoom" data-pretty="prettyPhoto" href="{{ rs.image.url }}" >
+							<i class="icon-zoom-in icon-rounded icon-48 active"></i>
+							</a>
+                      <a href="/images/{{ rs.id }}/{{ rs.slug }}">
+							<i class="icon-link icon-rounded icon-48 active"></i>
+							</a>
+                      <div class="hidden-tablet">
+                        <p>
+                          {{rs.title}}
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+                    {% endfor %}
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="span12">
+            <div class="pagination">
+              <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">Next</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

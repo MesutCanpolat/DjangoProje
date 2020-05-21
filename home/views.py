@@ -10,7 +10,7 @@ from images.models import Images, Category
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Images.objects.all()[:4]
-    category=Category.objects.all()
+    category = Category.objects.all()
 
     context = {'setting': setting,
                'category': category,
@@ -21,13 +21,19 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    context = {'setting': setting,
+               'category': category
+               }
     return render(request, 'hakkimizda.html', context)
 
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    context = {'setting': setting,
+               'category': category
+               }
     return render(request, 'referanslarimiz.html', context)
 
 
@@ -46,5 +52,18 @@ def iletisim(request):
 
     setting = Setting.objects.get(pk=1)
     form = ContactFormu()
-    context = {'setting': setting, 'form': form}
+    category = Category.objects.all()
+    context = {'setting': setting, 'form': form,
+               'category': category}
     return render(request, 'iletisim.html', context)
+
+
+def category_images(request, id, slug):
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    images = Images.objects.filter(category_id=id)
+    context = {'images': images,
+               'category': category,
+               'categorydata': categorydata
+               }
+    return render(request, 'images.html', context)
