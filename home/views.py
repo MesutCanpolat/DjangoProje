@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
-from images.models import Images, Category, Foto
+from images.models import Images, Category, Foto, Comment
 
 
 def index(request):
@@ -79,9 +79,11 @@ def images_detail(request, id, slug):
     category = Category.objects.all()
     images = Images.objects.get(pk=id)
     fotos = Foto.objects.filter(images_id=id)
+    comments= Comment.objects.filter(image_id=id,status='True')
     context = {'images': images,
                'category': category,
-               'fotos': fotos
+               'fotos': fotos,
+               'comment':comments,
                }
     mesaj = "Ürün ", id, "/", slug
     return render(request, 'images_detail.html', context)

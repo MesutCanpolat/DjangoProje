@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/templates/images_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/templates/images_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/hakkimizda.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/hakkimizda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/images_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/images_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +199,7 @@
       <workItem from="1590006127720" duration="1685000" />
       <workItem from="1590023375554" duration="7798000" />
       <workItem from="1590092616747" duration="2800000" />
-      <workItem from="1590272350909" duration="11039000" />
+      <workItem from="1590272350909" duration="23001000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -284,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590035435654</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="anasayfa ürünlerin gösterilmesi ve ürün detay resim galerisi yapıldı.">
+      <created>1590284304050</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1590284304050</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +312,8 @@
     <MESSAGE value="index slider yapıldı" />
     <MESSAGE value="category yapıldı" />
     <MESSAGE value="category ürün gösterme yapıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="category ürün gösterme yapıldı" />
+    <MESSAGE value="anasayfa ürünlerin gösterilmesi ve ürün detay resim galerisi yapıldı." />
+    <option name="LAST_COMMIT_MESSAGE" value="anasayfa ürünlerin gösterilmesi ve ürün detay resim galerisi yapıldı." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1640" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589633745472">
@@ -319,11 +321,11 @@
     </state>
     <state x="1640" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1589633745472" />
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1585443394956" />
-    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590035434901">
+    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590284303272">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="423" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1589597765066" />
-    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590035434901" />
+    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590284303272" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
     <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
       <screen x="1366" y="0" width="1366" height="738" />
@@ -362,11 +364,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590035442294">
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590284310193">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1589597778662" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590035442294" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590284310193" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
     <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1590272350568">
       <screen x="1366" y="0" width="1366" height="738" />

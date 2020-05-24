@@ -6,105 +6,194 @@
 
 {% block head %}
     <link rel="shortcut icon" href="{{ setting.icon.url }}">
- {% endblock %}
+{% endblock %}
 
 {% block sidebar %}
     {% include "sidebar.html" %}
 {% endblock %}
 
 {% block content %}
-<section id="subintro">
-      <div class="container">
-        <div class="row">
-          <div class="span8">
-            <ul class="breadcrumb">
-              <li><a href="/"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-              <li><a href="/category/{{ images.category.id }}/{{ images.category.slug }}">{{images.category}}</a><i class="icon-angle-right"></i></li>
-              <li class="active">{{images.title}}</li>
-            </ul>
-          </div>
-          <div class="span4">
-            <div class="search">
-              <form class="input-append">
-                <input class="search-form" id="appendedPrependedInput" type="text" placeholder="Search here.." />
-                <button class="btn btn-dark" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="maincontent">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <article>
-              <div class="heading">
-                <h4>{{images.title}}</h4>
-              </div>
-              <div class="clearfix">
-              </div>
-              <div class="row">
+    <section id="subintro">
+        <div class="container">
+            <div class="row">
                 <div class="span8">
-                  <!-- start flexslider -->
-
-                  <div class="flexslider">
-
-                    <ul class="slides">
-                         {% for rs in fotos %}
-                      <li>
-                        <img src="{{rs.image.url}}" style="height: 238px; width: 620px " alt="" />
-                      </li>
-                        {% endfor %}
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li><a href="/category/{{ images.category.id }}/{{ images.category.slug }}">{{images.category}}</a><i class="icon-angle-right"></i></li>
+                        <li class="active">{{images.title}}</li>
                     </ul>
-
-                  </div>
-
-                  <!-- end flexslider -->
                 </div>
                 <div class="span4">
-                  <aside>
-                    <div class="widget">
-                      <div class="project-widget">
-                        <h4 class="rheading">{{images.title}}<span></span></h4>
-                        <ul class="project-detail">
-                          <li><label>Project name :</label> {{images.title}}</li>
-                          <li><label>Category :</label> {{images.category}}</li>
-                          <li><label>Project detail :</label> {{images.description}}</li>
-                          <li><label>Project date :</label> {{images.create_at}}</li>
-                        </ul>
-                      </div>
+                    <div class="search">
+                        <form class="input-append">
+                            <input class="search-form" id="appendedPrependedInput" type="text" placeholder="Search here.." />
+                            <button class="btn btn-dark" type="submit">Search</button>
+                        </form>
                     </div>
-                  </aside>
                 </div>
-              </div>
-            </article>
-            <!-- end article full post -->
-          </div>
+            </div>
         </div>
-<div class="span12">
-                <div class="tabbable tabs-top">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a href="#one" data-toggle="tab"> Detail</a></li>
-                    <li><a href="#two" data-toggle="tab">Comments</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="one">
-                      <p>
-                          {{images.detail | safe}}
-                      </p>
-                    </div>
-                    <div class="tab-pane" id="two">
-                      <p>
-                        Tale dolor mea ex, te enim assum suscipit cum, vix aliquid omittantur in. Duo eu cibo dolorum menandri, nam sumo dicit admodum ei. Ne mazim commune honestatis cum, mentitum phaedrum sit et.
-                      </p>
-                    </div>
-                  </div>
+    </section>
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <article>
+                        <div class="heading">
+                            <h4>{{images.title}}</h4>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <div class="row">
+                            <div class="span8">
+                                <!-- start flexslider -->
+
+                                <div class="flexslider">
+
+                                    <ul class="slides">
+                                        {% for rs in fotos %}
+                                            <li>
+                                                <img src="{{rs.image.url}}" style="height: 238px; width: 620px " alt="" />
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+
+                                </div>
+
+                                <!-- end flexslider -->
+                            </div>
+                            <div class="span4">
+                                <aside>
+                                    <div class="widget">
+                                        <div class="project-widget">
+                                            <h4 class="rheading">{{images.title}}<span></span></h4>
+                                            <ul class="project-detail">
+                                                <li><label>Project name :</label> {{images.title}}</li>
+                                                <li><label>Category :</label> {{images.category}}</li>
+                                                <li><label>Project detail :</label> {{images.description}}</li>
+                                                <li><label>Project date :</label> {{images.create_at}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- end article full post -->
                 </div>
-                <!-- end tab -->
-              </div>
+            </div>
+            <div class="span12">
+                <div class="tabbable tabs-top">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#one" data-toggle="tab"> Detail</a></li>
+                        <li><a href="#two" data-toggle="tab">Comments</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="one">
+                            <p>
+                                {{images.detail | safe}}
+                            </p>
+                        </div>
+
+                        <div class="tab-pane" id="two">
+                            <h4>Comments</h4>
+                        {% for rs in comment %}
+
+                            <ul class="media-list">
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" src="assets/img/small-avatar.png" alt="" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><a href="#">{{ rs.user }}</a></h5>
+                                        <span>{{rs.create_at}}</span>
+                                    <b>rate : {{rs.rate}}</b>
+                                    {% if rs.rate < 2 %}
+                                       </b> <a class="icon-star"></a>
+
+                                    {% elif rs.rate < 3 %}
+                                       </b> <a class="icon-star"></a>
+                                       </b> <a class="icon-star"></a>
+
+                                    {% elif rs.rate < 4 %}
+                                       </b> <a class="icon-star"></a>
+                                       </b> <a class="icon-star"></a>
+                                       </b> <a class="icon-star"></a>
+
+                                    {% elif rs.rate < 5 %}
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+
+                                    {% elif rs.rate < 6 %}
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                        <a class="icon-star"></a>
+                                    {% endif %}
 
 
-      </div>
+
+                                        <br>
+                                        <b>{{ rs.subject }}</b>
+                                        <p>
+                                            {{ rs.comment }}
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        {% endfor %}
+                            <div class="comment-post">
+                                <h4>Leave a comment</h4>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }}" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            <p>Your email addres will not be published </p>
+
+                                <form action="/images/addcomment/{{ images.id }}" method="post" class="comment-form" name="comment-form">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="span4">
+                                            <label>Subject <span>*</span></label>
+                                            <input type="text" name="subject" id="id_subject" class="input-block-level" placeholder="Subject" />
+                                        </div>
+                                        <div class="span4">
+                                            <label>Rate <span>*</span></label>
+                                            <select id="id_rate" name="rate" class="input-block-level">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="span8">
+                                            <label>Comment <span>*</span></label>
+                                            <textarea name="comment" id="id_comment" rows="9" class="input-block-level" placeholder="Your comment"></textarea>
+                                            {%  if user.id is not None %}
+                                                <button class="btn btn-theme" type="submit">Submit comment</button>
+                                            {% else %}
+                                                Yorum eklemek için <a href="/login">login</a> olunuz!
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end tab -->
+        </div>
+
+
+        </div>
     </section>
 {% endblock %}
