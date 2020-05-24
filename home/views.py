@@ -1,21 +1,27 @@
+from ckeditor_uploader.forms import SearchForm
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
-from images.models import Images, Category
+from images.models import Images, Category, Foto
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Images.objects.all()[:4]
     category = Category.objects.all()
+    dayimages = Images.objects.all()
+    lastimages = Images.objects.all().order_by('-id')[:4]
 
     context = {'setting': setting,
                'category': category,
                'page': 'home',
-               'sliderdata': sliderdata}
+               'sliderdata': sliderdata,
+               'dayimages': dayimages,
+               'lastimages': lastimages
+               }
     return render(request, 'index.html', context)
 
 
@@ -67,3 +73,30 @@ def category_images(request, id, slug):
                'categorydata': categorydata
                }
     return render(request, 'images.html', context)
+
+
+def images_detail(request, id, slug):
+    category = Category.objects.all()
+    images = Images.objects.get(pk=id)
+    fotos = Foto.objects.filter(images_id=id)
+    context = {'images': images,
+               'category': category,
+               'fotos': fotos
+               }
+    mesaj = "Ürün ", id, "/", slug
+    return render(request, 'images_detail.html', context)
+
+
+def images_search(request):
+    if request.method == 'POST':  # Check form post
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            category = Category.objects.all()
+            query = form.cleaned_data['query']  # Get form data
+            images = Images.objects.filter(title__icontains=query)  # Select * from news where title like %query%
+            # return HttpResponse(images)
+            context = {'images': images,
+                       'category': category,
+                       }
+            return render(request, 'images_search.html', context)
+    return HttpResponseRedirect('/')

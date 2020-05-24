@@ -29,22 +29,21 @@
             <div class="widget">
               <h5>How to find us</h5>
               <address>
-								<i class="icon-home"></i> <strong>Lumia company, Inc.</strong><br>
-								X104 Awesome ville, Suite AB12<br>
-								Jakarta 12420 Indonesia
+								<i class="icon-home"></i> <strong>{{setting.company}}</strong><br>
+								{{setting.address}}
 								</address>
               <p>
-                <i class="icon-phone"></i> (123) 456-7890 - (123) 555-8890<br>
-                <i class="icon-envelope-alt"></i> email@domainname.com
+                <i class="icon-phone"></i> {{setting.phone}}<br>
+                <i class="icon-envelope-alt"></i> {{setting.email}}
               </p>
             </div>
             <div class="widget">
               <ul class="social">
-                <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square icon-32"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square icon-32"></i></a></li>
+                <li><a href="{{setting.twitter}}" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square icon-32"></i></a></li>
+                <li><a href="{{setting.facebook}}" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square icon-32"></i></a></li>
                 <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-square icon-32"></i></a></li>
                 <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest icon-square icon-32"></i></a></li>
-                <li><a href="#" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square icon-32"></i></a></li>
+                <li><a href="{{setting.email}}" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square icon-32"></i></a></li>
               </ul>
             </div>
           </div>

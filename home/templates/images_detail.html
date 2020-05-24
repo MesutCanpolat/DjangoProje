@@ -1,0 +1,110 @@
+{% extends "homebase.html" %}
+
+{% block title %}{{ images.title }}{% endblock %}
+{% block keywords %}{{ images.keywords }}{% endblock %}
+{% block description %}{{ images.description }}{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}">
+ {% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<section id="subintro">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <ul class="breadcrumb">
+              <li><a href="/"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+              <li><a href="/category/{{ images.category.id }}/{{ images.category.slug }}">{{images.category}}</a><i class="icon-angle-right"></i></li>
+              <li class="active">{{images.title}}</li>
+            </ul>
+          </div>
+          <div class="span4">
+            <div class="search">
+              <form class="input-append">
+                <input class="search-form" id="appendedPrependedInput" type="text" placeholder="Search here.." />
+                <button class="btn btn-dark" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="maincontent">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <article>
+              <div class="heading">
+                <h4>{{images.title}}</h4>
+              </div>
+              <div class="clearfix">
+              </div>
+              <div class="row">
+                <div class="span8">
+                  <!-- start flexslider -->
+
+                  <div class="flexslider">
+
+                    <ul class="slides">
+                         {% for rs in fotos %}
+                      <li>
+                        <img src="{{rs.image.url}}" style="height: 238px; width: 620px " alt="" />
+                      </li>
+                        {% endfor %}
+                    </ul>
+
+                  </div>
+
+                  <!-- end flexslider -->
+                </div>
+                <div class="span4">
+                  <aside>
+                    <div class="widget">
+                      <div class="project-widget">
+                        <h4 class="rheading">{{images.title}}<span></span></h4>
+                        <ul class="project-detail">
+                          <li><label>Project name :</label> {{images.title}}</li>
+                          <li><label>Category :</label> {{images.category}}</li>
+                          <li><label>Project detail :</label> {{images.description}}</li>
+                          <li><label>Project date :</label> {{images.create_at}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </article>
+            <!-- end article full post -->
+          </div>
+        </div>
+<div class="span12">
+                <div class="tabbable tabs-top">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#one" data-toggle="tab"> Detail</a></li>
+                    <li><a href="#two" data-toggle="tab">Comments</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="one">
+                      <p>
+                          {{images.detail | safe}}
+                      </p>
+                    </div>
+                    <div class="tab-pane" id="two">
+                      <p>
+                        Tale dolor mea ex, te enim assum suscipit cum, vix aliquid omittantur in. Duo eu cibo dolorum menandri, nam sumo dicit admodum ei. Ne mazim commune honestatis cum, mentitum phaedrum sit et.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- end tab -->
+              </div>
+
+
+      </div>
+    </section>
+{% endblock %}

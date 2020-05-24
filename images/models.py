@@ -31,7 +31,7 @@ class Category(MPTTModel):
         while prnt is not None:
             cat.append(prnt.title)
             prnt = prnt.parent
-        return ' -> '.join(cat[::-1])
+        return ' / '.join(cat[::-1])
 
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
