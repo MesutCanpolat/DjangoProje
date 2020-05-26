@@ -1,3 +1,5 @@
+
+
 {% extends "homebase.html" %}
 
 {% block title %}Hakkımızda-{{ setting.company }}{% endblock %}
@@ -13,6 +15,8 @@
 {% endblock %}
 
 {% block content %}
+
+
  <!-- Subintro
 ================================================== -->
     <section id="subintro">
@@ -25,11 +29,12 @@
               <li class="active">Hakkımızda</li>
             </ul>
           </div>
+          
           <div class="span4">
             <div class="search">
               <form class="input-append" action="/search/" method="post">
                   {% csrf_token %}
-                <input name="query" class="search-form" id="appendedPrependedInput" type="text" placeholder="Search here.." />
+                <input name="query" id="query" class="search-form" type="text" placeholder="Search here.." />
                 <button class="btn btn-dark" type="submit">Search</button>
               </form>
             </div>

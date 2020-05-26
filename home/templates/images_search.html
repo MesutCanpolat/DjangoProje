@@ -6,59 +6,65 @@
 
 {% block head %}
     <link rel="shortcut icon" href="{{ setting.icon.url }}">
- {% endblock %}
+{% endblock %}
 
 {% block sidebar %}
     {% include "sidebar.html" %}
 {% endblock %}
 
 {% block content %}
- <!-- Subintro
-================================================== -->
+    <!-- Subintro
+   ================================================== -->
     <section id="subintro">
-      <div class="container">
-        <div class="row">
-          <div class="span8">
-            <ul class="breadcrumb">
-              <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-              <li><a href="/">Anasayfa</a><i class="icon-angle-right"></i></li>
-              <li class="active">{{ categorydata.title }}</li>
-            </ul>
-          </div>
-          <div class="span4">
-            <div class="search">
-              <form class="input-append" action="/search/" method="post">
-                  {% csrf_token %}
-                <input class="query" id="query" type="text" placeholder="Search here.." />
-                <button class="btn btn-dark" type="submit">Search</button>
-              </form>
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li><a href="/">Anasayfa</a><i class="icon-angle-right"></i></li>
+                        <li class="active">{{ categorydata.title }}</li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <div class="search">
+                        <form class="input-append" action="/search/" method="post">
+                            {% csrf_token %}
+                            <input class="query" id="query" type="text" placeholder="Search here.." />
+                            <button class="btn btn-dark" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
     <section id="maincontent">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <table cellpadding="3" width="1200">
-                <tr>
-                    <th>Image</th>
-                    <th>Images Name</th>
-                    <th>Category</th>
-                </tr>
-                {% for rs in images %}
-                    <tr>
-                        <td> <a href="/images/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" style="..." alt=""></a></td>
-                        <td> <h4 class="product-name"><a href="/images/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4></td>
-                        <td> <a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
-                    </tr>
-                {% endfor %}
+        <div class="container">
+            <div class="row">
+                <div class="span12">
 
-            </table>
-          </div>
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>Image</th>
+                            <th>Images Name</th>
+                            <th>Category</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for rs in images %}
+                            <tr>
+                                <td> <a href="/images/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" style="height: 183px; width: 183px"  alt=""></a></td>
+                                <td> <h4 class="product-name"><a href="/images/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4></td>
+                                <td> <a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
 {% endblock %}

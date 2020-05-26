@@ -1,5 +1,7 @@
+
 {% load static %}
-<div id="wrapper">
+{% load mptt_tags %}
+<div id="wrapper" xmlns="http://www.w3.org/1999/html">
     <header>
         <!-- Navbar
       ================================================== -->
@@ -7,15 +9,15 @@
             <div class="navbar-inner">
                 <div class="container">
                     <!-- logo -->
-                    <div class="logo">
-                        <a href="/"><img src="{% static 'assets/img/logo.jpg'%}" alt="" /></a>
-                    </div>
                     <!-- end logo -->
 
                     <!-- top menu -->
                     <div class="navigation">
-                        <nav>
+
+
+
                             <ul class="nav topnav">
+
                                 <li class="active">
                                     <a href="/"><i class="icon-home"></i> Anasayfa </a>
                                 </li>
@@ -31,12 +33,12 @@
 
                                     <a href="#"><i class="icon-reorder"></i> Categories <i class="icon-angle-down"></i></a>
                                     <ul class="dropdown-menu">
-                                        {% load mptt_tags %}
+
                                         {% recursetree category %}
                                             <li class="dropdown"><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }} <i  {% if not node.is_leaf_node %} class="icon-angle-right" {% endif %}></i></a>
                                                 {% if not node.is_leaf_node %}
                                                     <ul class="dropdown-menu sub-menu">
-                                                      {{ children }}
+                                                        {{ children }}
                                                     </ul>
                                                 {% endif %}
                                             </li>
@@ -65,12 +67,43 @@
                                 <li>
                                     <a href="/iletisim"><i class="icon-envelope-alt"></i> Contact</a>
                                 </li>
+                                <li>
+                                    <div class="span4">
+                                        <div class="search">
+                                            <form class="input-append" action="/search/" method="post">
+                                                {% csrf_token %}
+
+                                                <select name="catid" id="catid" class="input search-categories">
+                                                    <option selected value="0">All Categories</option>
+                                                    {% recursetree category %}
+                                                        {% if node.is_leaf_node %}
+                                                            <option value="{{ node.id }}">{{ node.title }}</option>
+                                                        {% else %}
+                                                            <optgroup label="{{ node.title }}">
+                                                                {{ children }}
+                                                            </optgroup>
+                                                        {% endif %}
+                                                    {% endrecursetree %}
+                                                </select>
+
+                                                <input style="height: 20px; width: 90px" name="query" id="id_q" class="search-form" type="text" placeholder="Search here.." />
+                                                <button type="submit" class="btn btn-dark" >SEARCH</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+    </li>
+
+
                             </ul>
-                        </nav>
+
+
                     </div>
+
                     <!-- end menu -->
 
                 </div>
             </div>
         </div>
     </header>
+</div>

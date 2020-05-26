@@ -39,11 +39,11 @@
             </div>
             <div class="widget">
               <ul class="social">
-                <li><a href="{{setting.twitter}}" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square icon-32"></i></a></li>
-                <li><a href="{{setting.facebook}}" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square icon-32"></i></a></li>
+                <li><a href="https://www.twitter.com/{{setting.twitter}}" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square icon-32"></i></a></li>
+                <li><a href="https://www.facebook.com/{{ setting.facebook }}" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square icon-32"></i></a></li>
                 <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-square icon-32"></i></a></li>
                 <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest icon-square icon-32"></i></a></li>
-                <li><a href="{{setting.email}}" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square icon-32"></i></a></li>
+                <li><a href="mailto:{{setting.email}}" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square icon-32"></i></a></li>
               </ul>
             </div>
           </div>
@@ -92,3 +92,27 @@
 
   <!-- Template Custom JavaScript File -->
   <script src="{% static 'assets/js/custom.js'%}"></script>
+
+ <script>
+
+  $(function() {
+    $("#id_q").autocomplete({
+      source: "/search_auto/",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 1,
+    });
+  });
+
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+
+</script>
+ <!-- jQuery !-->
+
+<!-- jQuery UI !-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

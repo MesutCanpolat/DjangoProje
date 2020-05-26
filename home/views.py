@@ -1,4 +1,6 @@
-from ckeditor_uploader.forms import SearchForm
+import json
+
+from .forms import SearchForm
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -79,11 +81,11 @@ def images_detail(request, id, slug):
     category = Category.objects.all()
     images = Images.objects.get(pk=id)
     fotos = Foto.objects.filter(images_id=id)
-    comments= Comment.objects.filter(image_id=id,status='True')
+    comments = Comment.objects.filter(image_id=id, status='True')
     context = {'images': images,
                'category': category,
                'fotos': fotos,
-               'comment':comments,
+               'comment': comments,
                }
     mesaj = "Ürün ", id, "/", slug
     return render(request, 'images_detail.html', context)
@@ -94,11 +96,35 @@ def images_search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             category = Category.objects.all()
-            query = form.cleaned_data['query']  # Get form data
-            images = Images.objects.filter(title__icontains=query)  # Select * from news where title like %query%
+            setting = Setting.objects.first()
+
+            query = form.cleaned_data['query']  # get form data
+            catid = form.cleaned_data['catid']  # get form data
+            # retutn HttpResponse(catid)
+            if catid == 0:
+                images = Images.objects.filter(title__icontains=query)  # Selecet * form product where title lik %query%
+            else:
+                images = Images.objects.filter(title__icontains=query, category_id=catid)
             # return HttpResponse(images)
             context = {'images': images,
+                       'setting':setting,
                        'category': category,
                        }
             return render(request, 'images_search.html', context)
     return HttpResponseRedirect('/')
+
+
+def search_auto(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        images = Images.objects.filter(title__icontains=q)
+        results = []
+        for image in images:
+            room_json = {}
+            room_json = image.title
+            results.append(room_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
