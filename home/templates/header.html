@@ -13,95 +13,85 @@
 
                     <!-- top menu -->
                     <div class="navigation">
+                        <ul class="nav topnav">
+                            <li class="active">
+                                <a href="/"><i class="icon-home"></i> Anasayfa </a>
+                            </li>
+                            <li>
+                                <a href="/hakkimizda"><i class="icon-info-sign"></i> Hakkımızda</a>
+                            </li>
+                            <li>
+                                <a href="/referanslar"><i class="icon-info-sign"></i> Referanslar</a>
+                            </li>
 
 
+                            <li class="dropdown">
 
-                            <ul class="nav topnav">
+                                <a href="#"><i class="icon-reorder"></i> Categories <i class="icon-angle-down"></i></a>
+                                <ul class="dropdown-menu">
 
-                                <li class="active">
-                                    <a href="/"><i class="icon-home"></i> Anasayfa </a>
-                                </li>
-                                <li>
-                                    <a href="/hakkimizda"><i class="icon-info-sign"></i> Hakkımızda</a>
-                                </li>
-                                <li>
-                                    <a href="/referanslar"><i class="icon-info-sign"></i> Referanslar</a>
-                                </li>
+                                    {% recursetree category %}
+                                        <li class="dropdown"><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }} <i  {% if not node.is_leaf_node %} class="icon-angle-right" {% endif %}></i></a>
+                                            {% if not node.is_leaf_node %}
+                                                <ul class="dropdown-menu sub-menu">
+                                                    {{ children }}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endrecursetree %}
 
+                                </ul>
+                            </li>
+                            <!--   <li class="dropdown">
+                                <a href="#"><i class="icon-briefcase"></i> Portfolio <i class="icon-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
+                                  <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
+                                  <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
+                                  <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                                </ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#"><i class="icon-book"></i> Blog <i class="icon-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
+                                  <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
+                                  <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
+                                  <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
+                                </ul>
+                              </li> -->
+                            <li>
+                                <a href="/iletisim"><i class="icon-envelope-alt"></i> Contact</a>
+                            </li>
+                            <li>
+                                <div class="span4">
+                                    <div class="search">
+                                        <form class="input-append" action="/search/" method="post">
+                                            {% csrf_token %}
 
-                                <li class="dropdown">
+                                            <select name="catid" id="catid" class="input search-categories" style="height: 30px; width: 50px">
+                                                <option selected value="0">All</option>
+                                                {% recursetree category %}
+                                                    {% if node.is_leaf_node %}
+                                                        <option value="{{ node.id }}">{{ node.title }}</option>
+                                                    {% else %}
+                                                        <optgroup label="{{ node.title }}">
+                                                            {{ children }}
+                                                        </optgroup>
+                                                    {% endif %}
+                                                {% endrecursetree %}
+                                            </select>
 
-                                    <a href="#"><i class="icon-reorder"></i> Categories <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
+                                            <input style="height: 20px; width: 85px" name="query" id="id_q" class="search-form" type="text" placeholder="Search here.." />
+                                            <button type="submit" class="btn btn-dark"  style="height: 30px; width: 50px">ARA</button>
+                                        </form>
 
-                                        {% recursetree category %}
-                                            <li class="dropdown"><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }} <i  {% if not node.is_leaf_node %} class="icon-angle-right" {% endif %}></i></a>
-                                                {% if not node.is_leaf_node %}
-                                                    <ul class="dropdown-menu sub-menu">
-                                                        {{ children }}
-                                                    </ul>
-                                                {% endif %}
-                                            </li>
-                                        {% endrecursetree %}
-
-                                    </ul>
-                                </li>
-                                <!--   <li class="dropdown">
-                                    <a href="#"><i class="icon-briefcase"></i> Portfolio <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                      <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
-                                      <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
-                                      <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
-                                      <li><a href="portfolio-detail.html">Portfolio detail</a></li>
-                                    </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                    <a href="#"><i class="icon-book"></i> Blog <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                      <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                      <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                      <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                                      <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                                    </ul>
-                                  </li> -->
-                                <li>
-                                    <a href="/iletisim"><i class="icon-envelope-alt"></i> Contact</a>
-                                </li>
-                                <li>
-                                    <div class="span4">
-                                        <div class="search">
-                                            <form class="input-append" action="/search/" method="post">
-                                                {% csrf_token %}
-
-                                                <select name="catid" id="catid" class="input search-categories">
-                                                    <option selected value="0">All Categories</option>
-                                                    {% recursetree category %}
-                                                        {% if node.is_leaf_node %}
-                                                            <option value="{{ node.id }}">{{ node.title }}</option>
-                                                        {% else %}
-                                                            <optgroup label="{{ node.title }}">
-                                                                {{ children }}
-                                                            </optgroup>
-                                                        {% endif %}
-                                                    {% endrecursetree %}
-                                                </select>
-
-                                                <input style="height: 20px; width: 90px" name="query" id="id_q" class="search-form" type="text" placeholder="Search here.." />
-                                                <button type="submit" class="btn btn-dark" >SEARCH</button>
-                                            </form>
-
-                                        </div>
                                     </div>
-    </li>
-
-
-                            </ul>
-
-
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-
                     <!-- end menu -->
-
                 </div>
             </div>
         </div>

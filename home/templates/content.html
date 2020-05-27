@@ -32,6 +32,7 @@
             </div>
           </div>
 {% endfor %}
+
         <div class="row">
           <div class="span12">
             <h4 class="rheading">Recent works<span></span></h4>
@@ -44,11 +45,12 @@
 
                 <a href="#" class="btn btn-theme">Read More</a>
               </div>
-{% for rs in lastimages %}
+
               <div class="span9">
                 <div id="latest-work" class="carousel btleft">
                   <div class="carousel-wrapper">
-                    <ul class="da-thumbs">
+ {% for rs in lastimages %}
+                     <ul class="da-thumbs">
 
                       <li>
                         <img src="{{rs.image.url}}" style="height: 165px; width: 220px " alt="" />
@@ -64,12 +66,12 @@
                           </div>
                         </article>
                       </li>
-
                     </ul>
+{% endfor %}
                   </div>
                 </div>
               </div>
-                {% endfor %}
+
             </div>
           </div>
         </div>

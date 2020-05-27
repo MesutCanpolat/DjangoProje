@@ -2,33 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0003_auto_20200406_0537.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0004_auto_20200406_0558.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0005_auto_20200516_0550.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0006_auto_20200516_0719.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0007_auto_20200516_0728.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0008_auto_20200516_1525.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0009_auto_20200516_1531.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0010_auto_20200516_1806.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0011_auto_20200518_0536.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0012_auto_20200524_0518.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0013_auto_20200524_0536.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0014_auto_20200524_0538.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0015_auto_20200524_0553.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0016_auto_20200524_0636.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0017_auto_20200524_0724.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0018_auto_20200525_1906.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0019_auto_20200526_0650.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0020_auto_20200526_0653.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0021_auto_20200526_0654.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0022_auto_20200526_0657.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0023_auto_20200526_2205.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0024_auto_20200526_2209.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0025_auto_20200526_2213.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/hakkimizda.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/hakkimizda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/images.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/images.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/images_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/images_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/images_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/images_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/referanslarimiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/referanslarimiz.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +205,7 @@
       <workItem from="1590415118077" duration="5533000" />
       <workItem from="1590423841729" duration="16561000" />
       <workItem from="1590468477227" duration="412000" />
-      <workItem from="1590519735342" duration="6541000" />
+      <workItem from="1590519735342" duration="7937000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -323,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590464661486</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="otomatik slug oluşturma işlemi yapıldu">
+      <created>1590547903765</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590547903765</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +342,8 @@
     <MESSAGE value="anasayfa ürünlerin gösterilmesi ve ürün detay resim galerisi yapıldı." />
     <MESSAGE value="ürün yorum ve puan ekleme" />
     <MESSAGE value="ürün arama işlemleri ve yazı otomatik tanımlama yapıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="ürün arama işlemleri ve yazı otomatik tanımlama yapıldı" />
+    <MESSAGE value="otomatik slug oluşturma işlemi yapıldu" />
+    <option name="LAST_COMMIT_MESSAGE" value="otomatik slug oluşturma işlemi yapıldu" />
   </component>
   <component name="WindowStateProjectService">
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590520950423">
@@ -366,11 +356,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590520464807" />
-    <state x="423" y="0" key="CommitChangelistDialog2" timestamp="1590464660731">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590547903033">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="423" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464660731" />
-    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590297400081" />
+    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590547903033" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
     <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
       <screen x="1366" y="0" width="1366" height="738" />
@@ -409,11 +399,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590464664442">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590547916557">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464664442" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590297405143" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590547916557" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1590519740019">
       <screen x="0" y="0" width="1366" height="738" />
