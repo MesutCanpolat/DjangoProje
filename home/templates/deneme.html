@@ -47,7 +47,7 @@
                             {% if user.id is not None %}
                                 <li>
                                     <div class="btn-group">
-                                        <button class="btn btn">{{user}}</button>
+                                        <button class="btn btn">{{user.first_name}} {{ user.last_name }}</button>
                                         <button class="btn btn dropdown-toggle" data-toggle="dropdown">
                                             <span class="caret"></span>
                                         </button>
@@ -62,7 +62,7 @@
                             {% else %}
                                 <li>
                                     <a href="/login/">Login</a>
-                                    <a href="/join/">Join</a>
+                                    <a href="/signup/">Sign Up</a>
 
                                 </li>
                             {% endif %}

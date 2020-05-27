@@ -2,7 +2,7 @@ import json
 
 from django.contrib.auth import logout, authenticate, login
 
-from .forms import SearchForm
+from .forms import SearchForm, SignUpForm
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -109,7 +109,7 @@ def images_search(request):
                 images = Images.objects.filter(title__icontains=query, category_id=catid)
             # return HttpResponse(images)
             context = {'images': images,
-                       'setting':setting,
+                       'setting': setting,
                        'category': category,
                        }
             return render(request, 'images_search.html', context)
@@ -131,9 +131,11 @@ def search_auto(request):
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
 
+
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect("/")
+
 
 def login_view(request):
     if request.method == "POST":
@@ -149,6 +151,26 @@ def login_view(request):
 
     category = Category.objects.all()
     context = {
-               'category': category,
-               }
+        'category': category,
+    }
     return render(request, 'login.html', context)
+
+
+def signup_view(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+
+    form = SignUpForm()
+    category = Category.objects.all()
+    context = {
+        'category': category,
+        'form': form,
+    }
+    return render(request, 'signup.html', context)
