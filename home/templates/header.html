@@ -15,7 +15,7 @@
                     <div class="navigation">
                         <ul class="nav topnav">
                             <li class="active">
-                                <a href="/"><i class="icon-home"></i> Anasayfa </a>
+                                <a href="/"><i class="icon-home"></i>Anasatfa </a>
                             </li>
                             <li>
                                 <a href="/hakkimizda"><i class="icon-info-sign"></i> Hakkımızda</a>
@@ -63,32 +63,8 @@
                             <li>
                                 <a href="/iletisim"><i class="icon-envelope-alt"></i> Contact</a>
                             </li>
-                            <li>
-                                <div class="span4">
-                                    <div class="search">
-                                        <form class="input-append" action="/search/" method="post">
-                                            {% csrf_token %}
 
-                                            <select name="catid" id="catid" class="input search-categories" style="height: 30px; width: 50px">
-                                                <option selected value="0">All</option>
-                                                {% recursetree category %}
-                                                    {% if node.is_leaf_node %}
-                                                        <option value="{{ node.id }}">{{ node.title }}</option>
-                                                    {% else %}
-                                                        <optgroup label="{{ node.title }}">
-                                                            {{ children }}
-                                                        </optgroup>
-                                                    {% endif %}
-                                                {% endrecursetree %}
-                                            </select>
 
-                                            <input style="height: 20px; width: 85px" name="query" id="id_q" class="search-form" type="text" placeholder="Search here.." />
-                                            <button type="submit" class="btn btn-dark"  style="height: 30px; width: 50px">ARA</button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <!-- end menu -->

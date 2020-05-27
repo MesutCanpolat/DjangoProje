@@ -1,80 +1,80 @@
 <section id="maincontent">
-      <div class="container">
-{% load static %}
+    <div class="container">
+        {% load static %}
         <div class="row">
-          <div class="span12">
-            <div class="call-action">
+            <div class="span12">
+                <div class="call-action">
 
-              <div class="text">
-                <h2>You should love this stand out call action</h2>
-                <p>
-                  Hover this call action box and see the call action button play nice animation to seek attention
-                </p>
-              </div>
-              <div class="cta">
-                <a class="btn btn-large btn-theme" href="#">
-							<i class="icon-plane icon-white"></i> Get a quote </a>
-              </div>
+                    <div class="text">
+                        <h2>You should love this stand out call action</h2>
+                        <p>
+                            Hover this call action box and see the call action button play nice animation to seek attention
+                        </p>
+                    </div>
+                    <div class="cta">
+                        <a class="btn btn-large btn-theme" href="#">
+                            <i class="icon-plane icon-white"></i> Get a quote </a>
+                    </div>
 
-            </div>
-            <!-- end tagline -->
-          </div>
-        </div>
-{% for rs in dayimages %}
-        <div class="row">
-          <div class="span3 features e_pulse">
-            <img src="{{rs.image.url}}" style="height: 280px; width: 560px " alt="" />
-            <div class="box">
-              <div class="divcenter">
-                <a href="/images/{{ rs.id }}/{{ rs.slug }}"><i class="icon-circled icon-48 icon-magic active icon"></i></a>
-                <h4>{{ rs.title }}</h4>
-              </div>
-            </div>
-          </div>
-{% endfor %}
-
-        <div class="row">
-          <div class="span12">
-            <h4 class="rheading">Recent works<span></span></h4>
-            <div class="row">
-              <div class="span3">
-
-                <p class="hidden-phone">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in lacus rhoncus elit egestas luctus. Nullam at lectus augue.
-                </p>
-
-                <a href="#" class="btn btn-theme">Read More</a>
-              </div>
-
-              <div class="span9">
-                <div id="latest-work" class="carousel btleft">
-                  <div class="carousel-wrapper">
- {% for rs in lastimages %}
-                     <ul class="da-thumbs">
-
-                      <li>
-                        <img src="{{rs.image.url}}" style="height: 165px; width: 220px " alt="" />
-                        <article class="da-animate da-slideFromRight">
-                          <a class="zoom" data-pretty="prettyPhoto" href="{{rs.image.url}}">
-														<i class="icon-zoom-in icon-rounded icon-48 active"></i>
-													</a>
-                          <a href="/images/{{ rs.id }}/{{ rs.slug }}">
-														<i class="icon-link icon-rounded icon-48 active"></i>
-													</a>
-                          <div class="hidden-tablet">
-                            <p>{{rs.title}}</p>
-                          </div>
-                        </article>
-                      </li>
-                    </ul>
-{% endfor %}
-                  </div>
                 </div>
-              </div>
-
+                <!-- end tagline -->
             </div>
-          </div>
         </div>
-</div>
-      </div>
-    </section>
+        {% for rs in dayimages %}
+            <div class="row">
+            <div class="span3 features e_pulse">
+                <img src="{{rs.image.url}}" style="height: 280px; width: 560px " alt="" />
+                <div class="box">
+                    <div class="divcenter">
+                        <a href="/images/{{ rs.id }}/{{ rs.slug }}"><i class="icon-circled icon-48 icon-magic active icon"></i></a>
+                        <h4>{{ rs.title }}</h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="span12">
+                <h4 class="rheading">Recent works<span></span></h4>
+                <div class="row">
+                    <div class="span3">
+
+                        <p class="hidden-phone">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in lacus rhoncus elit egestas luctus. Nullam at lectus augue.
+                        </p>
+
+                        <a href="#" class="btn btn-theme">Read More</a>
+                    </div>
+
+                    <div class="span9">
+                        <div id="latest-work" class="carousel btleft">
+                            <div class="carousel-wrapper">
+                                {% for rs in lastimages %}
+                                    <ul class="da-thumbs">
+
+                                        <li>
+                                            <img src="{{rs.image.url}}" style="height: 165px; width: 220px " alt="" />
+                                            <article class="da-animate da-slideFromRight">
+                                                <a class="zoom" data-pretty="prettyPhoto" href="{{rs.image.url}}">
+                                                    <i class="icon-zoom-in icon-rounded icon-48 active"></i>
+                                                </a>
+                                                <a href="/images/{{ rs.id }}/{{ rs.slug }}">
+                                                    <i class="icon-link icon-rounded icon-48 active"></i>
+                                                </a>
+                                                <div class="hidden-tablet">
+                                                    <p>{{rs.title}}</p>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

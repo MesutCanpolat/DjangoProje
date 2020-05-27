@@ -1,0 +1,77 @@
+{% load static %}
+{% load mptt_tags %}
+<div id="wrapper" xmlns="http://www.w3.org/1999/html">
+    <header>
+        <!-- Navbar
+      ================================================== -->
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- logo -->
+                    <!-- end logo -->
+
+                    <!-- top menu -->
+                    <div class="navigation">
+
+                        <ul class="nav topnav">
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'assets/img/logo.jpg'%}" alt="" /></a>
+                            </div>
+                            <li class="">
+                                <div class="span4">
+                                    <div class="search">
+                                        <form class="input-append" action="/search/" method="post">
+                                            {% csrf_token %}
+
+                                            <select name="catid" id="catid" class="input search-categories" style="height: 30px; width: 50px">
+                                                <option selected value="0">All</option>
+                                                {% recursetree category %}
+                                                    {% if node.is_leaf_node %}
+                                                        <option value="{{ node.id }}">{{ node.title }}</option>
+                                                    {% else %}
+                                                        <optgroup label="{{ node.title }}">
+                                                            {{ children }}
+                                                        </optgroup>
+                                                    {% endif %}
+                                                {% endrecursetree %}
+                                            </select>
+
+                                            <input style="height: 20px; width: 85px" name="query" id="id_q" class="search-form" type="text" placeholder="Search here.." />
+                                            <button type="submit" class="btn btn-dark"  style="height: 30px; width: 50px">ARA</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            {% if user.id is not None %}
+                                <li>
+                                    <div class="btn-group">
+                                        <button class="btn btn">{{user}}</button>
+                                        <button class="btn btn dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">My Account</a></li>
+                                            <li><a tabindex="-1" href="#">My Comments</a></li>
+                                            <li><a tabindex="-1" href="/logout/">Logout</a></li>
+                                            <li><a tabindex="-1" href="#">Another link</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="/login/">Login</a>
+                                    <a href="/join/">Join</a>
+
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!-- end menu -->
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>

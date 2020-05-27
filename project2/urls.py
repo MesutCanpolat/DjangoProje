@@ -32,7 +32,9 @@ urlpatterns = [
     path('category/<int:id>/<slug:slug>/', views.category_images, name='category_images'),
     path('images/<int:id>/<slug:slug>/', views.images_detail, name='images_detail'),
     path('search/', views.images_search, name='images_search'),
-    path('search_auto/', views.search_auto, name="search_auto")
+    path('search_auto/', views.search_auto, name="search_auto"),
+    path('logout/', views.logout_view, name="logout_view"),
+    path('login/', views.login_view, name="login_view")
 ]
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
