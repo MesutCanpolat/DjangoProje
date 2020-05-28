@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 from images.models import Images, Category, Foto, Comment
 
 
@@ -165,6 +165,13 @@ def signup_view(request):
             password = request.POST['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
+
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/icon.jpg"
+            data.save()
+            messages.success(request, "Tebrikler sistemimize Uye oldunuz! ")
             return HttpResponseRedirect('/')
 
     form = SignUpForm()

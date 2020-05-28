@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user.apps.UserConfig',
     'images.apps.ImagesConfig',
     'home.apps.HomeConfig',
     'django.contrib.admin',
@@ -133,7 +134,7 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar' : None,
+        'toolbar': None,
     },
 }
 
