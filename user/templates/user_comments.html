@@ -1,21 +1,22 @@
 {% extends "homebase.html" %}
-    {% block title %}{{ profile.user_name }} COMMENTS {% endblock %}
+{% block title %}{{ profile.user_name }} COMMENTS {% endblock %}
 {% block keywords %}{{ setting.keywords }} {% endblock %}
 {% block description %}{{ setting.description }}  {% endblock %}
 
 {% block head %}<link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />{% endblock %}
 {% block sidebar %}
-{% include "sidebar.html" %}
+    {% include "sidebar.html" %}
 {% endblock %}
 
 
 {% block content %}
-<script>
-function myFunction() {
-  confirm("'Ürün silinecektir.Emin misniz?");
-}
-</script>
-<section id="subintro">
+
+    <section id="subintro">
+        <script>
+            function myFunction() {
+                confirm("'Ürün silinecektir.Emin misniz?");
+            }
+        </script>
         <div class="container">
             <div class="row">
                 <div class="span8">
@@ -44,42 +45,49 @@ function myFunction() {
                     </aside>
                 </div>
                 <div class="span8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <div class="section-title">
                         <h3 class="title">COMMENTS LIST</h3>
                     </div>
                     <div class="cart-table clearfix">
-                         <table class="table table-responsive">
+                        <table class="table table-responsive">
 
-                        <tr>
+                            <tr>
 
-                            <th class="text-left"><span>image </span><hr></th>
-                            <th class="text-left"><span></span>RATE</span><hr> </th>
-                            <th class="text-left"><span>Subject </span><hr></th>
-                            <th class="text-left"><span>Comment</span><hr></th>
-                            <th class="text-left"><span>status</span><hr></th>
-                            <th class="text-left"><span>date</span><hr></th>
-                            <th class="text-left"><span>Detail</span><hr></th>
+                                <th class="text-left"><span>image </span><hr></th>
+                                <th class="text-left"><span></span>RATE</span><hr> </th>
+                                <th class="text-left"><span>Subject </span><hr></th>
+                                <th class="text-left"><span>Comment</span><hr></th>
+                                <th class="text-left"><span>status</span><hr></th>
+                                <th class="text-left"><span>date</span><hr></th>
+                                <th class="text-left"><span>Detail</span><hr></th>
 
 
-                        </tr>
-                        {% for rs in comments %}
-                        <tr>
+                            </tr>
+                            {% for rs in comments %}
+                                <tr>
 
-                            <td class="text-left"><span>
+                                    <td class="text-left"><span>
                                 <a href="/images/{{rs.image_id}}/{{rs.image.slug}}">
                                 {{ rs.image.title}}
                                 </a>
                             </span><hr></td>
-                            <td class="text-left">{{ rs.rate}}</td>
-                            <td class="text-left"><span>{{ rs.subject}}</span><hr> </td>
-                            <td class="text-left"><span>{{ rs.comment}} </span><hr></td>
-                            <td class="text-left"><span>{{ rs.status}} </span><hr></td>
-                            <td class="text-left"><span>{{ rs.create_at}} </span><hr></td>
-                            <td class="text-left"><button><a class="btn karl-checkout-btn" href="/user/deletecomment/{{ rs.id}}" onclick = "myFunction()" >DELETE</a></button> </td>
-                        </tr>
-                        {% endfor %}
+                                    <td class="text-left">{{ rs.rate}}</td>
+                                    <td class="text-left"><span>{{ rs.subject}}</span><hr> </td>
+                                    <td class="text-left"><span>{{ rs.comment}} </span><hr></td>
+                                    <td class="text-left"><span>{{ rs.status}} </span><hr></td>
+                                    <td class="text-left"><span>{{ rs.create_at}} </span><hr></td>
+                                    <td class="text-left"><button><a class="btn karl-checkout-btn" href="/user/deletecomment/{{ rs.id}}" onclick = "myFunction()" >DELETE</a></button> </td>
+                                </tr>
+                            {% endfor %}
 
-                    </table>
+                        </table>
 
                     </div>
                     <div class="spacer30">
