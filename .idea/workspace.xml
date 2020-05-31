@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a72c16ac-208d-4b8b-8b83-13ce7bc940f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/templates/faq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project2/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,15 +81,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Django\project2\user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\project2\home\templates" />
       <recent name="C:\Django\project2\user\templates" />
       <recent name="C:\Django\project2\user" />
-      <recent name="C:\Django\project2\home\templates" />
       <recent name="C:\Django\project2\home" />
       <recent name="C:\Django\project2\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Django\project2\user" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.project2">
@@ -205,7 +211,8 @@
       <workItem from="1590468477227" duration="412000" />
       <workItem from="1590519735342" duration="13813000" />
       <workItem from="1590598778323" duration="7846000" />
-      <workItem from="1590619157541" duration="11670000" />
+      <workItem from="1590619157541" duration="12110000" />
+      <workItem from="1590894215284" duration="3191000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -354,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590634618463</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="düzeltme">
+      <created>1590634909905</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1590634909905</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,11 +419,11 @@
     </state>
     <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590520464807" />
     <state x="1779" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590634491879" />
-    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590634617864">
+    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590634909278">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="423" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464660731" />
-    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590634617864" />
+    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590634909278" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
     <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
       <screen x="1366" y="0" width="1366" height="738" />
@@ -452,11 +466,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590634623073">
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590634914257">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464664442" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590634623073" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590634914257" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
     <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1590619158013">
       <screen x="1366" y="0" width="1366" height="738" />
