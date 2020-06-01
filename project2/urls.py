@@ -31,6 +31,7 @@ urlpatterns = [
     path('hakkimizda/', views.hakkimizda, name='hakkimizda'),
     path('referanslar/', views.referanslar, name='referanslar'),
     path('iletisim/', views.iletisim, name='iletisim'),
+    path('error/', views.error, name='error'),
     path('category/<int:id>/<slug:slug>/', views.category_images, name='category_images'),
     path('images/<int:id>/<slug:slug>/', views.images_detail, name='images_detail'),
     path('search/', views.images_search, name='images_search'),
@@ -39,6 +40,9 @@ urlpatterns = [
     path('login/', views.login_view, name="login_view"),
     path('signup/', views.signup_view, name="signup_view"),
     path('sss/', views.faq, name='faq'),
+    path('content/', include('content.urls')),
+    path('menu/<int:id>', views.menu, name='menu'),
+    path('content/<int:id>/<slug:slug>/', views.contentdetail, name='contentdetail'),
 ]
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

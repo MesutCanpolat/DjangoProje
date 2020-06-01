@@ -1,0 +1,175 @@
+{% extends "homebase.html" %}
+
+{% block title %}{{ images.title }}{% endblock %}
+{% block keywords %}{{ images.keywords }}{% endblock %}
+{% block description %}{{ images.description }}{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}">
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+    <section id="subintro">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li><a href="/category/{{ content.category.id }}/{{ images.category.slug }}">{{images.category}}</a><i class="icon-angle-right"></i></li>
+                        <li class="active">{{content.type}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <article>
+                        <div class="heading">
+                            <h4>{{content.title}}</h4>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="one">
+                                <p>
+                                    <a href="#"><img src="{{content.image.url}}"  style="height: 150px; width: 150px" alt=""></a>
+                                    {{content.detail | safe}}
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="span8">
+                                    <!-- start flexslider -->
+
+                                    <div class="flexslider">
+
+                                        <ul class="slides">
+                                            {% for rs in images %}
+                                                <li>
+                                                    <img src="{{rs.image.url}}" style="height: 238px; width: 620px " alt="" />
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+
+                                    </div>
+
+                                    <!-- end flexslider -->
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- end article full post -->
+                </div>
+            </div>
+            <div class="span12">
+                <div class="tabbable tabs-top">
+
+
+                    <div class="tab-pane" id="two">
+                        <h4>Comments</h4>
+                        {% for rs in comment %}
+
+                            <ul class="media-list">
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" src="assets/img/small-avatar.png" alt="" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><a href="#">{{ rs.user }}</a></h5>
+                                        <span>{{rs.create_at}}</span>
+                                        <b>rate : {{rs.rate}}</b>
+                                        {% if rs.rate < 2 %}
+                                            </b> <a class="icon-star"></a>
+
+                                        {% elif rs.rate < 3 %}
+                                            </b> <a class="icon-star"></a>
+                                            </b> <a class="icon-star"></a>
+
+                                        {% elif rs.rate < 4 %}
+                                            </b> <a class="icon-star"></a>
+                                            </b> <a class="icon-star"></a>
+                                            </b> <a class="icon-star"></a>
+
+                                        {% elif rs.rate < 5 %}
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+
+                                        {% elif rs.rate < 6 %}
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                            <a class="icon-star"></a>
+                                        {% endif %}
+
+
+
+                                        <br>
+                                        <b>{{ rs.subject }}</b>
+                                        <p>
+                                            {{ rs.comment }}
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        {% endfor %}
+                        <div class="comment-post">
+                            <h4>Leave a comment</h4>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <p>Your email addres will not be published </p>
+
+                            <form action="/images/addcomment/{{ images.id }}" method="post" class="comment-form" name="comment-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="span4">
+                                        <label>Subject <span>*</span></label>
+                                        <input type="text" name="subject" id="id_subject" class="input-block-level" placeholder="Subject" />
+                                    </div>
+                                    <div class="span4">
+                                        <label>Rate <span>*</span></label>
+                                        <select id="id_rate" name="rate" class="input-block-level">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="span8">
+                                        <label>Comment <span>*</span></label>
+                                        <textarea name="comment" id="id_comment" rows="9" class="input-block-level" placeholder="Your comment"></textarea>
+                                        {%  if user.id is not None %}
+                                            <button class="btn btn-theme" type="submit">Submit comment</button>
+                                        {% else %}
+                                            Yorum eklemek için <a href="/login">login</a> olunuz!
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end tab -->
+        </div>
+
+
+        </div>
+    </section>
+{% endblock %}

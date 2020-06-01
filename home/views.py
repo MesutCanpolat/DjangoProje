@@ -2,6 +2,7 @@ import json
 
 from django.contrib.auth import logout, authenticate, login
 
+from content.models import Content, Menu, CImages
 from .forms import SearchForm, SignUpForm
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
@@ -16,12 +17,17 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Images.objects.all()[:4]
     category = Category.objects.all()
+    menu = Menu.objects.all()
     dayimages = Images.objects.all()
     lastimages = Images.objects.all().order_by('-id')[:4]
-
+    news = Content.objects.filter(type='haber', status='True').order_by('-id')[:4]
+    announcements = Content.objects.filter(type='duyuru', status='True').order_by('-id')[:4]
     context = {'setting': setting,
+               'menu': menu,
                'category': category,
                'page': 'home',
+               'news': news,
+               'announcements': announcements,
                'sliderdata': sliderdata,
                'dayimages': dayimages,
                'lastimages': lastimages
@@ -31,8 +37,10 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
+    menu = Menu.objects.all()
     category = Category.objects.all()
     context = {'setting': setting,
+               'menu': menu,
                'category': category
                }
     return render(request, 'hakkimizda.html', context)
@@ -40,8 +48,10 @@ def hakkimizda(request):
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
+    menu = Menu.objects.all()
     category = Category.objects.all()
     context = {'setting': setting,
+               'menu': menu,
                'category': category
                }
     return render(request, 'referanslarimiz.html', context)
@@ -62,30 +72,36 @@ def iletisim(request):
 
     setting = Setting.objects.get(pk=1)
     form = ContactFormu()
+    menu = Menu.objects.all()
     category = Category.objects.all()
     context = {'setting': setting, 'form': form,
+               'menu': menu,
                'category': category}
     return render(request, 'iletisim.html', context)
 
 
 def category_images(request, id, slug):
     category = Category.objects.all()
+    menu = Menu.objects.all()
     categorydata = Category.objects.get(pk=id)
     images = Images.objects.filter(category_id=id)
     context = {'images': images,
                'category': category,
+               'menu': menu,
                'categorydata': categorydata
                }
     return render(request, 'images.html', context)
 
 
 def images_detail(request, id, slug):
+    menu = Menu.objects.all()
     category = Category.objects.all()
     images = Images.objects.get(pk=id)
     fotos = Foto.objects.filter(images_id=id)
     comments = Comment.objects.filter(image_id=id, status='True')
     context = {'images': images,
                'category': category,
+               'menu': menu,
                'fotos': fotos,
                'comment': comments,
                }
@@ -97,6 +113,7 @@ def images_search(request):
     if request.method == 'POST':  # Check form post
         form = SearchForm(request.POST)
         if form.is_valid():
+            menu = Menu.objects.all()
             category = Category.objects.all()
             setting = Setting.objects.first()
 
@@ -109,6 +126,7 @@ def images_search(request):
                 images = Images.objects.filter(title__icontains=query, category_id=catid)
             # return HttpResponse(images)
             context = {'images': images,
+                       'menu': menu,
                        'setting': setting,
                        'category': category,
                        }
@@ -148,9 +166,10 @@ def login_view(request):
         else:
             messages.warning(request, "Login Hatası ! Kullanıcı adı yada şifre yanlış")
             return HttpResponseRedirect('/login')
-
+    menu = Menu.objects.all()
     category = Category.objects.all()
     context = {
+        'menu': menu,
         'category': category,
     }
     return render(request, 'login.html', context)
@@ -175,12 +194,54 @@ def signup_view(request):
             return HttpResponseRedirect('/')
 
     form = SignUpForm()
+    menu = Menu.objects.all()
     category = Category.objects.all()
     context = {
         'category': category,
+        'menu': menu,
         'form': form,
     }
     return render(request, 'signup.html', context)
+
+
+def menu(request, id):
+    try:
+        content = Content.objects.get(menu_id=id)
+        link = '/content/' + str(content.id) + '/menu'
+        return HttpResponseRedirect(link)
+    except:
+        messages.warning(request, "HATA! ilgili içerik bulunamadı ")
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+
+def contentdetail(request, id, slug):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    try:
+        content = Content.objects.get(pk=id)
+        images = CImages.objects.filter(content_id=id)
+        # comment= Comment.objects.filter(product_id,status='True')
+        context = {'content': content,
+                   'category': category,
+                   'menu': menu,
+                   'images': images,
+                   }
+        return render(request, 'content_detail.html', context)
+    except:
+        messages.warning(request, "HATA! ilgili içerik bulunamadı ")
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+
+def error(request):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    context = {
+        'category': category,
+        'menu': menu,
+    }
+    return render(request, 'error_page.html', context)
 
 
 def faq(request):
@@ -189,6 +250,7 @@ def faq(request):
     context = {
 
         'faq': faq,
+        'menu': menu,
         'category': category,
     }
     return render(request, 'faq.html', context)
