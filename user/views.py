@@ -6,17 +6,21 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from content.models import Menu
 from home.models import UserProfile
+from home.views import menu
 from images.models import Category, Comment
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
 def index(request):
+    menu = Menu.objects.all()
     category = Category.objects.all()
     current_user = request.user
     profile = UserProfile.objects.get(user_id=current_user.id)
     # return HttpResponse(profile)
     context = {
+        'menu': menu,
         'category': category,
         'profile': profile,
 
@@ -35,10 +39,12 @@ def user_update(request):
             messages.success(request, 'your account has been updated')
             return redirect('/user')
     else:
+        menu = Menu.objects.all()
         category = Category.objects.all()
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.userprofile)
         context = {
+            'menu': menu,
             'category': category,
             'user_form': user_form,
             'profile_form': profile_form,
@@ -60,10 +66,12 @@ def change_password(request):
             messages.error(request, 'Please correct the error bellow !<br>' + str(form.errors))
             return HttpResponseRedirect('/user/password')
     else:
+        menu = Menu.objects.all()
         category = Category.objects.all()
         form = PasswordChangeForm(request.user)
         return render(request, 'change_password.html', {
             'form': form,
+            'menu': menu,
             'category': category
 
         })
@@ -71,11 +79,13 @@ def change_password(request):
 
 @login_required(login_url='/login')
 def comments(request):
+    menu = Menu.objects.all()
     category = Category.objects.all()
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id )
 
     context = {
+        'menu': menu,
         'category': category,
         'comments': comments,
 
@@ -89,3 +99,4 @@ def deletecomment(request, id):
     Comment.objects.filter(id=id, user_id=current_user.id, ).delete()
     messages.success(request, 'comment deleted....')
     return HttpResponseRedirect('/user/comments')
+
