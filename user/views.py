@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from content.models import Menu
 from home.models import UserProfile
 from home.views import menu
-from images.models import Category, Comment
+from images.models import Category, Comment, News, NewsForm, NewsImageForm, Images
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -100,3 +100,113 @@ def deletecomment(request, id):
     messages.success(request, 'comment deleted....')
     return HttpResponseRedirect('/user/comments')
 
+@login_required(login_url='/login')
+def contents(request):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    current_user = request.user
+    news = News.objects.filter(user_id=current_user.id, status='True')
+    print(news)
+    context = {
+        'category': category,
+        'menu': menu,
+        'news': news,
+    }
+    return render(request, 'user_news.html', context)
+
+
+@login_required(login_url='/login')
+def addcontent(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            data = News()
+            data.user_id = current_user.id
+            data.title = form.cleaned_data['title']
+            data.keywords = form.cleaned_data['keywords']
+            data.description = form.cleaned_data['description']
+            data.image = form.cleaned_data['image']
+            data.category = form.cleaned_data['category']
+            data.slug = form.cleaned_data['slug']
+            data.detail = form.cleaned_data['detail']
+            data.status = 'False'
+            data.save()
+            messages.success(request, 'Başarıyla işlem gerçekleşti')
+            return HttpResponseRedirect('/user/contents')
+        else:
+            messages.success(request, 'Content Form Error' + str(form.errors))
+            return HttpResponseRedirect('/user/addcontent')
+
+    else:
+        category = Category.objects.all()
+        menu = Menu.objects.all()
+        form = NewsForm()
+        context = {
+            'menu': menu,
+            'category': category,
+            'form': form,
+        }
+        return render(request, 'user_addnews.html', context)
+
+
+@login_required(login_url='/login')
+def contentedit(request, id):
+    news = News.objects.get(id=id)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=news)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your News Updated Successfuly')
+            return HttpResponseRedirect('/user/contents')
+        else:
+            messages.success(request, 'News Form Error:' + str(form.errors))
+            return HttpResponseRedirect('/user/contentedit' + str(id))
+    else:
+
+        category = Category.objects.all()
+        menu = Menu.objects.all()
+        form = NewsForm(instance=news)
+        news = {
+            'menu': menu,
+            'category': category,
+            'form': form,
+
+        }
+        return render(request, 'user_addnews.html', news)
+
+
+@login_required(login_url='/login')
+def contentdelete(request, id):
+    current_user = request.user
+    News.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, ' News deleted..')
+    return HttpResponseRedirect('/user/contents')
+
+
+def contentaddimage(request,id):
+    if request.method == 'POST':
+        lasturl= request.META.get('HTTP_REFERER')
+        form = NewsImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = Images()
+            data.title = form.cleaned_data['title']
+            data.news_id = id
+            data.image = form.cleaned_data['image']
+            data.save()
+            messages.success(request, 'Your image has been successfully uploaded')
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request, 'Form Error:' + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+
+    else:
+        news = News.objects.get(id=id)
+        images = Images.objects.filter(news_id=id)
+        form = NewsImageForm()
+        context = {
+            'news': news,
+            'images': images,
+            'form': form,
+        }
+        return render(request, 'news_gallery.html', context)

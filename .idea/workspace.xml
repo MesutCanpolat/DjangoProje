@@ -7,9 +7,11 @@
       <change afterPath="$PROJECT_DIR$/user/templates/user_addnews.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user/templates/user_news.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/deneme.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/deneme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,15 +83,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Django\project2\user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Django\project2\user\templates" />
+      <recent name="C:\Django\project2\user" />
       <recent name="C:\Django\project2\home\templates" />
       <recent name="C:\Django\project2\content" />
-      <recent name="C:\Django\project2\user" />
       <recent name="C:\Django\project2\home" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Django\project2\user\templates" />
+      <recent name="C:\Django\project2\user" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.project2">
@@ -213,7 +216,8 @@
       <workItem from="1590598778323" duration="7846000" />
       <workItem from="1590619157541" duration="12110000" />
       <workItem from="1590894215284" duration="5942000" />
-      <workItem from="1590960298599" duration="13599000" />
+      <workItem from="1590960298599" duration="13927000" />
+      <workItem from="1591030642114" duration="17860000" />
     </task>
     <task id="LOCAL-00001" summary="header deisti">
       <created>1585442898363</created>
@@ -383,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590975888429</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="düzeltme">
+      <created>1590982938156</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1590982938156</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,10 +430,10 @@
     <MESSAGE value="signup yapıldı" />
     <MESSAGE value="üye profili ve ek bilgiler resim yapıldı" />
     <MESSAGE value="Anasayfa üye paneli ve profil bilgileri&#10;üye ekleme sırasındaki otomatik ilişki profil olusturma&#10;üye bilgilerini ve şifre güncelleme işlemi&#10;üye yorum listeleme silme işlemleri yapıldı" />
-    <MESSAGE value="düzeltme" />
     <MESSAGE value="sıkça sorulan sorular eklendi" />
     <MESSAGE value="menü haber içerik yönetim sistemi" />
-    <option name="LAST_COMMIT_MESSAGE" value="menü haber içerik yönetim sistemi" />
+    <MESSAGE value="düzeltme" />
+    <option name="LAST_COMMIT_MESSAGE" value="düzeltme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="274" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590520950423">
@@ -436,21 +447,21 @@
     </state>
     <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590520464807" />
     <state x="1779" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590898394769" />
-    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590975887703">
+    <state x="1789" y="0" key="CommitChangelistDialog2" timestamp="1590982937511">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="423" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464660731" />
-    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590975887703" />
+    <state x="1789" y="0" key="CommitChangelistDialog2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590982937511" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585443874516" />
     <state x="1495" y="56" width="1092" height="618" key="DiffContextDialog" timestamp="1586049967853">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="1495" y="56" key="DiffContextDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1586049967853" />
     <state x="129" y="56" width="1092" height="618" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1585443869550" />
-    <state x="1829" y="124" key="FileChooserDialogImpl" timestamp="1590979686533">
+    <state x="1829" y="124" key="FileChooserDialogImpl" timestamp="1591032398824">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
-    <state x="1829" y="124" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590979686533" />
+    <state x="1829" y="124" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1591032398824" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1589602854196">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -483,18 +494,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584916174007" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590975895623">
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2" timestamp="1590982941355">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590464664442" />
-    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590975895623" />
+    <state x="1641" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590982941355" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585443884115" />
-    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1590619158013">
+    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1591030649012">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="355" y="180" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1590333858633" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590519740019" />
-    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1590619158013" />
+    <state x="1745" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1591030649012" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1585429583450" />
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590521856628">
       <screen x="0" y="0" width="1366" height="738" />
@@ -509,11 +520,11 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1280.689@0.0.1280.689" timestamp="1586208229187" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1590520063018">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1712" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591054137229">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1590520063018" />
-    <state x="1712" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1587471900680" />
+    <state x="1712" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1591054137229" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project2$settings.coverage" NAME="settings Coverage Results" MODIFIED="1584886997452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project2" />
