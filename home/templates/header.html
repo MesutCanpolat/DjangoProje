@@ -66,7 +66,7 @@
                                 <ul class="dropdown-menu">
 
                                     {% recursetree menu %}
-                                        <li class="dropdown"><a href="/content/{{ node.id }}/menu">{{ node.title }} <i  {% if not node.is_leaf_node %} class="icon-angle-right" {% endif %}></i></a>
+                                        <li class="dropdown"><a href="/menu/{{ node.id }}">{{ node.title }} <i  {% if not node.is_leaf_node %} class="icon-angle-right" {% endif %}></i></a>
                                             {% if not node.is_leaf_node %}
                                                 <ul class="dropdown-menu sub-menu">
                                                     {{ children }}

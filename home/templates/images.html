@@ -36,9 +36,6 @@
             <ul class="filter">
 
               <li class="all active"><a href="#" class="btn">All categories</a></li>
-              <li class="web"><a href="#" class="btn">Web design</a></li>
-              <li class="brand"><a href="#" class="btn">Brand identity</a></li>
-              <li class="graphic"><a href="#" class="btn">Graphic design</a></li>
             </ul>
           </div>
         </div>
@@ -46,11 +43,11 @@
 
           <ul class="portfolio-area da-thumbs">
             <li class="portfolio-item" data-id="id-0" data-type="web">
-                {% for rs in images %}
+            {% for rs in images %}
               <div class="span4">
                 <div class="thumbnail">
                   <div class="image-wrapp">
-                    <img src="{{ rs.image.url }}" alt="Portfolio name" style="height: 225px; width: 300px " />
+                    <img src="{{ rs.category.image.url }}" alt="Portfolio name" style="height: 225px; width: 300px " />
                     <article class="da-animate da-slideFromRight">
                       <a class="zoom" data-pretty="prettyPhoto" href="{{ rs.image.url }}" >
 							<i class="icon-zoom-in icon-rounded icon-48 active"></i>

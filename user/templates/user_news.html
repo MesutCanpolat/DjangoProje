@@ -52,7 +52,7 @@
 
                      <div class="section-title">
                         <h3 class="title">User Content List</h3>
-                        <h4><a class="btn-primary" href="/user/addcontent">Add Content</a> </h4>
+                        <h4><a class="btn btn-primary" href="/user/addcontent">Add Content</a> </h4>
                     </div>
                     <table  class="fa-shopping-cart-table table">
                     {% load  static %}
@@ -66,12 +66,12 @@
                             <th class="text-left">Date</th>
                             <th class="text-left">Detail</th>
                         </tr>
-                        {% for rs in news %}
+                        {% for rs in contents %}
                         <tr>
                             <th class="text-left">
                                 <a href="/content/{{ rs.id }}/{{ rs.slug }}">
                                 <img src="{{ rs.image.url }}" style="height: 30px;"></a></th>
-                            <th class="text-left"><a href="/contents/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></th>
+                            <th class="text-left"><a href="/content/{{ rs.id }}/menu">{{ rs.title }}</a></th>
                             <th class="text-left">{{ rs.type }}</th>
                             <th class="text-left">{{ rs.menu.title }}</th>
                             <th class="text-left">{{ rs.status }}</th>

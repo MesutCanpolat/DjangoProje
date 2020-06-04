@@ -83,8 +83,14 @@ def iletisim(request):
 def category_images(request, id, slug):
     category = Category.objects.all()
     menu = Menu.objects.all()
+    categories = Category.objects.filter(parent_id=id)
     categorydata = Category.objects.get(pk=id)
-    images = Images.objects.filter(category_id=id)
+    if categories:
+        print("ss")
+        images = Images.objects.filter(category_id__in=[cat.id for cat in categories])
+    else:
+        print("dd")
+        images = Images.objects.filter(category_id=id)
     context = {'images': images,
                'category': category,
                'menu': menu,
@@ -207,6 +213,7 @@ def signup_view(request):
 def menu(request, id):
     try:
         content = Content.objects.get(menu_id=id)
+        print(content.id)
         link = '/content/' + str(content.id) + '/menu'
         return HttpResponseRedirect(link)
     except:

@@ -6,11 +6,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from content.models import Menu
+from content.models import Menu, Content, ContentForm, CImageForm, CImages
 from home.models import UserProfile
 from home.views import menu
-from images.models import Category, Comment, News, NewsForm, NewsImageForm, Images
+from images.models import Category, Comment, Images, Foto
 from user.forms import UserUpdateForm, ProfileUpdateForm
+
 
 
 def index(request):
@@ -105,12 +106,11 @@ def contents(request):
     category = Category.objects.all()
     menu = Menu.objects.all()
     current_user = request.user
-    news = News.objects.filter(user_id=current_user.id, status='True')
-    print(news)
+    contents = Content.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
         'menu': menu,
-        'news': news,
+        'contents': contents,
     }
     return render(request, 'user_news.html', context)
 
@@ -118,16 +118,16 @@ def contents(request):
 @login_required(login_url='/login')
 def addcontent(request):
     if request.method == 'POST':
-        form = NewsForm(request.POST, request.FILES)
+        form = ContentForm(request.POST, request.FILES)
         if form.is_valid():
             current_user = request.user
-            data = News()
+            data = Content()
             data.user_id = current_user.id
             data.title = form.cleaned_data['title']
             data.keywords = form.cleaned_data['keywords']
             data.description = form.cleaned_data['description']
             data.image = form.cleaned_data['image']
-            data.category = form.cleaned_data['category']
+            data.category = form.cleaned_data['menu']
             data.slug = form.cleaned_data['slug']
             data.detail = form.cleaned_data['detail']
             data.status = 'False'
@@ -141,7 +141,7 @@ def addcontent(request):
     else:
         category = Category.objects.all()
         menu = Menu.objects.all()
-        form = NewsForm()
+        form = ContentForm()
         context = {
             'menu': menu,
             'category': category,
@@ -152,9 +152,9 @@ def addcontent(request):
 
 @login_required(login_url='/login')
 def contentedit(request, id):
-    news = News.objects.get(id=id)
+    contents = Content.objects.get(id=id)
     if request.method == 'POST':
-        form = NewsForm(request.POST, request.FILES, instance=news)
+        form = ContentForm(request.POST, request.FILES, instance=contents)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your News Updated Successfuly')
@@ -166,32 +166,32 @@ def contentedit(request, id):
 
         category = Category.objects.all()
         menu = Menu.objects.all()
-        form = NewsForm(instance=news)
-        news = {
+        form = ContentForm(instance=contents)
+        context = {
             'menu': menu,
             'category': category,
             'form': form,
 
         }
-        return render(request, 'user_addnews.html', news)
+        return render(request, 'user_addnews.html', context)
 
 
 @login_required(login_url='/login')
 def contentdelete(request, id):
     current_user = request.user
-    News.objects.filter(id=id, user_id=current_user.id).delete()
-    messages.success(request, ' News deleted..')
+    Content.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, ' Content deleted..')
     return HttpResponseRedirect('/user/contents')
 
 
 def contentaddimage(request,id):
     if request.method == 'POST':
         lasturl= request.META.get('HTTP_REFERER')
-        form = NewsImageForm(request.POST, request.FILES)
+        form = CImageForm(request.POST, request.FILES)
         if form.is_valid():
-            data = Images()
+            data = CImages()
             data.title = form.cleaned_data['title']
-            data.news_id = id
+            data.content_id = id
             data.image = form.cleaned_data['image']
             data.save()
             messages.success(request, 'Your image has been successfully uploaded')
@@ -201,11 +201,11 @@ def contentaddimage(request,id):
             return HttpResponseRedirect(lasturl)
 
     else:
-        news = News.objects.get(id=id)
-        images = Images.objects.filter(news_id=id)
-        form = NewsImageForm()
+        contents = Content.objects.get(id=id)
+        images = CImages.objects.filter(content_id=id)
+        form = CImageForm()
         context = {
-            'news': news,
+            'contents': contents,
             'images': images,
             'form': form,
         }
