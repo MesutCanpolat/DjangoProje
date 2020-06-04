@@ -15,7 +15,7 @@ from images.models import Images, Category, Foto, Comment
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Images.objects.all()[:4]
+    sliderdata = Images.objects.all().order_by('?')[:5]
     category = Category.objects.all()
     menu = Menu.objects.all()
     dayimages = Images.objects.all()
@@ -83,6 +83,7 @@ def iletisim(request):
 
 
 def category_images(request, id, slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     categories = Category.objects.filter(parent_id=id)
@@ -95,6 +96,7 @@ def category_images(request, id, slug):
         images = Images.objects.filter(category_id=id)
     context = {'images': images,
                'category': category,
+               'setting': setting,
                'menu': menu,
                'categorydata': categorydata
                }
@@ -102,11 +104,12 @@ def category_images(request, id, slug):
 
 
 def images_detail(request, id, slug):
+    setting = Setting.objects.get(pk=1)
     menu = Menu.objects.all()
     category = Category.objects.all()
     try:
-        images = Images.objects.get(pk=id,status="True")
-        fotos = Foto.objects.filter(images_id=id,status="True")
+        images = Images.objects.get(pk=id, status='True')
+        fotos = Foto.objects.filter(images_id=id)
         comments = Comment.objects.filter(image_id=id, status='True')
     except:
         return HttpResponseRedirect('/error')
@@ -115,6 +118,7 @@ def images_detail(request, id, slug):
                'menu': menu,
                'fotos': fotos,
                'comment': comments,
+               'setting': setting,
                }
     mesaj = "Ürün ", id, "/", slug
     return render(request, 'images_detail.html', context)
@@ -179,8 +183,10 @@ def login_view(request):
             return HttpResponseRedirect('/login')
     menu = Menu.objects.all()
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     context = {
         'menu': menu,
+        'setting' : setting,
         'category': category,
     }
     return render(request, 'login.html', context)
@@ -207,7 +213,9 @@ def signup_view(request):
     form = SignUpForm()
     menu = Menu.objects.all()
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     context = {
+        'setting': setting,
         'category': category,
         'menu': menu,
         'form': form,
@@ -228,6 +236,7 @@ def menu(request, id):
 
 
 def contentdetail(request, id, slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     try:
@@ -236,6 +245,7 @@ def contentdetail(request, id, slug):
         # comment= Comment.objects.filter(product_id,status='True')
         context = {'content': content,
                    'category': category,
+                   'setting': setting,
                    'menu': menu,
                    'images': images,
                    }
@@ -247,9 +257,11 @@ def contentdetail(request, id, slug):
 
 
 def error(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     context = {
+        'setting':setting,
         'category': category,
         'menu': menu,
     }
@@ -257,6 +269,7 @@ def error(request):
 
 
 def faq(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     faq = FAQ.objects.all().order_by('ordernumber')
     context = {
@@ -264,5 +277,6 @@ def faq(request):
         'faq': faq,
         'menu': menu,
         'category': category,
+        'setting': setting,
     }
     return render(request, 'faq.html', context)

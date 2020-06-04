@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from content.models import Menu, Content, ContentForm, CImageForm, CImages
-from home.models import UserProfile
+from home.models import UserProfile, Setting
 from home.views import menu
 from images.models import Category, Comment, Images, Foto, ImagesForm, FotoForm
 from user.forms import UserUpdateForm, ProfileUpdateForm
@@ -15,12 +15,14 @@ from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
 def index(request):
+    setting = Setting.objects.get(pk=1)
     menu = Menu.objects.all()
     category = Category.objects.all()
     current_user = request.user
     profile = UserProfile.objects.get(user_id=current_user.id)
     # return HttpResponse(profile)
     context = {
+        'setting': setting,
         'menu': menu,
         'category': category,
         'profile': profile,
@@ -40,11 +42,13 @@ def user_update(request):
             messages.success(request, 'your account has been updated')
             return redirect('/user')
     else:
+        setting = Setting.objects.get(pk=1)
         menu = Menu.objects.all()
         category = Category.objects.all()
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.userprofile)
         context = {
+            'setting': setting,
             'menu': menu,
             'category': category,
             'user_form': user_form,
@@ -67,11 +71,13 @@ def change_password(request):
             messages.error(request, 'Please correct the error bellow !<br>' + str(form.errors))
             return HttpResponseRedirect('/user/password')
     else:
+        setting = Setting.objects.get(pk=1)
         menu = Menu.objects.all()
         category = Category.objects.all()
         form = PasswordChangeForm(request.user)
         return render(request, 'change_password.html', {
             'form': form,
+            'setting': setting,
             'menu': menu,
             'category': category
 
@@ -80,12 +86,14 @@ def change_password(request):
 
 @login_required(login_url='/login')
 def comments(request):
+    setting = Setting.objects.get(pk=1)
     menu = Menu.objects.all()
     category = Category.objects.all()
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id )
 
     context = {
+        'setting': setting,
         'menu': menu,
         'category': category,
         'comments': comments,
@@ -104,11 +112,13 @@ def deletecomment(request, id):
 
 @login_required(login_url='/login')
 def fotos(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     current_user = request.user
     images = Images.objects.filter(user_id=current_user.id)
     context = {
+        'setting':setting,
         'category': category,
         'menu': menu,
         'images': images,
@@ -145,10 +155,12 @@ def addimage(request):
             return HttpResponseRedirect('/user/addimage')
 
     else:
+        setting = Setting.objects.get(pk=1)
         category = Category.objects.all()
         menu = Menu.objects.all()
         form = ImagesForm()
         context = {
+            'setting': setting,
             'menu': menu,
             'category': category,
             'form': form,
@@ -168,11 +180,12 @@ def editimage(request, id):
             messages.success(request, 'Images Form Error:' + str(form.errors))
             return HttpResponseRedirect('/user/editimage' + str(id))
     else:
-
+        setting = Setting.objects.get(pk=1)
         category = Category.objects.all()
         menu = Menu.objects.all()
         form = ImagesForm(instance=images)
         context = {
+            'setting': setting,
             'menu': menu,
             'category': category,
             'form': form,
@@ -210,11 +223,13 @@ def addfotogalery(request,id):
 
 @login_required(login_url='/login')
 def contents(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     current_user = request.user
     contents = Content.objects.filter(user_id=current_user.id)
     context = {
+        'setting': setting,
         'category': category,
         'menu': menu,
         'contents': contents,
@@ -230,6 +245,8 @@ def addcontent(request):
             current_user = request.user
             data = Content()
             data.user_id = current_user.id
+            data.menu = form.cleaned_data['menu']
+            data.type = form.cleaned_data['type']
             data.title = form.cleaned_data['title']
             data.keywords = form.cleaned_data['keywords']
             data.description = form.cleaned_data['description']
@@ -246,10 +263,12 @@ def addcontent(request):
             return HttpResponseRedirect('/user/addcontent')
 
     else:
+        setting = Setting.objects.get(pk=1)
         category = Category.objects.all()
         menu = Menu.objects.all()
         form = ContentForm()
         context = {
+            'setting': setting,
             'menu': menu,
             'category': category,
             'form': form,
@@ -270,11 +289,12 @@ def contentedit(request, id):
             messages.success(request, 'News Form Error:' + str(form.errors))
             return HttpResponseRedirect('/user/contentedit' + str(id))
     else:
-
+        setting = Setting.objects.get(pk=1)
         category = Category.objects.all()
         menu = Menu.objects.all()
         form = ContentForm(instance=contents)
         context = {
+            'setting': setting,
             'menu': menu,
             'category': category,
             'form': form,
