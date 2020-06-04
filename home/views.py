@@ -34,6 +34,8 @@ def index(request):
                }
     return render(request, 'index.html', context)
 
+def error(request):
+    return HttpResponseRedirect('error_page.html')
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
@@ -102,9 +104,12 @@ def category_images(request, id, slug):
 def images_detail(request, id, slug):
     menu = Menu.objects.all()
     category = Category.objects.all()
-    images = Images.objects.get(pk=id)
-    fotos = Foto.objects.filter(images_id=id)
-    comments = Comment.objects.filter(image_id=id, status='True')
+    try:
+        images = Images.objects.get(pk=id,status="True")
+        fotos = Foto.objects.filter(images_id=id,status="True")
+        comments = Comment.objects.filter(image_id=id, status='True')
+    except:
+        return HttpResponseRedirect('/error')
     context = {'images': images,
                'category': category,
                'menu': menu,

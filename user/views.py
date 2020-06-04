@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from content.models import Menu, Content, ContentForm, CImageForm, CImages
 from home.models import UserProfile
 from home.views import menu
-from images.models import Category, Comment, Images, Foto
+from images.models import Category, Comment, Images, Foto, ImagesForm, FotoForm
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -101,6 +101,113 @@ def deletecomment(request, id):
     messages.success(request, 'comment deleted....')
     return HttpResponseRedirect('/user/comments')
 
+
+@login_required(login_url='/login')
+def fotos(request):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    current_user = request.user
+    images = Images.objects.filter(user_id=current_user.id)
+    context = {
+        'category': category,
+        'menu': menu,
+        'images': images,
+    }
+    return render(request, 'foto_paylasim.html', context)
+
+@login_required(login_url='/login')
+def imagedelete(request, id):
+    current_user = request.user
+    Images.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, ' Images deleted..')
+    return HttpResponseRedirect('/user/fotos')
+@login_required(login_url='/login')
+def addimage(request):
+    if request.method == 'POST':
+        form = ImagesForm(request.POST, request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            data = Images()
+            data.user_id = current_user.id
+            data.title = form.cleaned_data['title']
+            data.keywords = form.cleaned_data['title']
+            data.description = form.cleaned_data['description']
+            data.image = form.cleaned_data['image']
+            data.category = form.cleaned_data['category']
+            data.slug = form.cleaned_data['slug']
+            data.detail = form.cleaned_data['detail']
+            data.status = 'False'
+            data.save()
+            messages.success(request, 'Başarıyla işlem gerçekleşti')
+            return HttpResponseRedirect('/user/fotos')
+        else:
+            messages.success(request, 'Content Form Error' + str(form.errors))
+            return HttpResponseRedirect('/user/addimage')
+
+    else:
+        category = Category.objects.all()
+        menu = Menu.objects.all()
+        form = ImagesForm()
+        context = {
+            'menu': menu,
+            'category': category,
+            'form': form,
+        }
+        return render(request, 'foto_ekleme.html', context)
+
+@login_required(login_url='/login')
+def editimage(request, id):
+    images = Images.objects.get(id=id)
+    if request.method == 'POST':
+        form = ImagesForm(request.POST, request.FILES, instance=images)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your Images Updated Successfuly')
+            return HttpResponseRedirect('/user/fotos')
+        else:
+            messages.success(request, 'Images Form Error:' + str(form.errors))
+            return HttpResponseRedirect('/user/editimage' + str(id))
+    else:
+
+        category = Category.objects.all()
+        menu = Menu.objects.all()
+        form = ImagesForm(instance=images)
+        context = {
+            'menu': menu,
+            'category': category,
+            'form': form,
+
+        }
+        return render(request, 'foto_ekleme.html', context)
+
+def addfotogalery(request,id):
+    if request.method == 'POST':
+        lasturl= request.META.get('HTTP_REFERER')
+        form = FotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = Foto()
+            data.title = form.cleaned_data['title']
+            data.images_id = id
+            data.image = form.cleaned_data['image']
+            data.save()
+            messages.success(request, 'Your image has been successfully uploaded')
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request, 'Form Error:' + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+
+    else:
+        contents = Images.objects.get(id=id)
+        images = Foto.objects.filter(images_id=id)
+        form = FotoForm()
+        context = {
+            'contents': contents,
+            'images': images,
+            'form': form,
+        }
+        return render(request, 'content_gallery.html', context)
+
+
 @login_required(login_url='/login')
 def contents(request):
     category = Category.objects.all()
@@ -112,7 +219,7 @@ def contents(request):
         'menu': menu,
         'contents': contents,
     }
-    return render(request, 'user_news.html', context)
+    return render(request, 'user_content.html', context)
 
 
 @login_required(login_url='/login')
@@ -147,7 +254,7 @@ def addcontent(request):
             'category': category,
             'form': form,
         }
-        return render(request, 'user_addnews.html', context)
+        return render(request, 'user_addcontent.html', context)
 
 
 @login_required(login_url='/login')
@@ -173,7 +280,7 @@ def contentedit(request, id):
             'form': form,
 
         }
-        return render(request, 'user_addnews.html', context)
+        return render(request, 'user_addcontent.html', context)
 
 
 @login_required(login_url='/login')
@@ -209,4 +316,4 @@ def contentaddimage(request,id):
             'images': images,
             'form': form,
         }
-        return render(request, 'news_gallery.html', context)
+        return render(request, 'content_gallery.html', context)

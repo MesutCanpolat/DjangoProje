@@ -48,11 +48,15 @@ class Category(MPTTModel):
 def get_absolute_url(self):
     return reverse('category_detail', kwargs={'slug': self.slug})
 
+
 class Images(models.Model):
     STATUS = {
         ('True', 'Evet'),
         ('False', 'Hayır')
     }
+
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)  # relation with Category table
     title = models.CharField(max_length=150)
     keywords = models.CharField(blank=True, max_length=255)
@@ -72,13 +76,16 @@ class Images(models.Model):
 
     image_tag.short_description = 'Image'
 
-def get_absolute_url(self):
-    return reverse('category_detail', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('category_detail', kwargs={'slug': self.slug})
 
-class NewsImageForm(ModelForm):
+
+class ImagesForm(ModelForm):
     class Meta:
         model = Images
-        fields = ['title', 'image']
+        fields = ['category', 'title', 'description' ,'image', 'detail','slug']
+
+
 class Foto(models.Model):
     images = models.ForeignKey(Images, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
@@ -92,6 +99,10 @@ class Foto(models.Model):
 
     image_tag.short_description = 'Image'
 
+class FotoForm(ModelForm):
+    class Meta:
+        model = Foto
+        fields = ['title','image']
 
 class Comment(models.Model):
     STATUS = {

@@ -43,9 +43,13 @@
                                 <div class="flexslider">
 
                                     <ul class="slides">
+                                    <li>
+                                         <img src="{{images.image.url}}" style="height: 400px; width: 620px " alt="" />
+                                    </li>
+
                                         {% for rs in fotos %}
                                             <li>
-                                                <img src="{{rs.image.url}}" style="height: 238px; width: 620px " alt="" />
+                                                <img src="{{rs.image.url}}" style="height: 400px; width: 620px " alt="" />
                                             </li>
                                         {% endfor %}
                                     </ul>
